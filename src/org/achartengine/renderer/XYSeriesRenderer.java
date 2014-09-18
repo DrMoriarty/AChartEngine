@@ -49,6 +49,8 @@ public class XYSeriesRenderer extends SimpleSeriesRenderer {
   private Align mChartValuesTextAlign = Align.CENTER;
   /** The chart values spacing from the data point. */
   private float mChartValuesSpacing = 5f;
+  /** The chart values color */
+  private int mChartValuesColor = DefaultRenderer.TEXT_COLOR;
   /** The annotations text size. */
   private float mAnnotationsTextSize = 10;
   /** The annotations text alignment. */
@@ -353,6 +355,26 @@ public class XYSeriesRenderer extends SimpleSeriesRenderer {
    */
   public void setChartValuesSpacing(float spacing) {
     mChartValuesSpacing = spacing;
+  }
+
+  /**
+   * Returns the chart values color.
+   * 
+   * @return the chart values color
+   */
+
+  public int getChartValuesColor() {
+    return mChartValuesColor;
+  }
+
+  /**
+   * Sets the chart values color.
+   *
+   * @param chart values color
+   */
+  
+  public void setChartValuesColor(int color) {
+    mChartValuesColor = color;
   }
 
   /**

@@ -541,6 +541,9 @@ public abstract class XYChart extends AbstractChart {
     // float[] points = MathHelper.getFloats(pointsList);
     drawSeries(canvas, paint, pointsList, seriesRenderer, yAxisValue, seriesIndex, startIndex);
     drawPoints(canvas, paint, pointsList, seriesRenderer, yAxisValue, seriesIndex, startIndex);
+    if (stroke != null) {
+      setStroke(cap, join, miter, style, pathEffect, paint);
+    }
     paint.setTextSize(seriesRenderer.getChartValuesTextSize());
     if (or == Orientation.HORIZONTAL) {
       paint.setTextAlign(Align.CENTER);
@@ -549,11 +552,9 @@ public abstract class XYChart extends AbstractChart {
     }
     if (seriesRenderer.isDisplayChartValues()) {
       paint.setTextAlign(seriesRenderer.getChartValuesTextAlign());
+      paint.setColor(seriesRenderer.getChartValuesColor());
       drawChartValuesText(canvas, series, seriesRenderer, paint, pointsList, seriesIndex,
           startIndex);
-    }
-    if (stroke != null) {
-      setStroke(cap, join, miter, style, pathEffect, paint);
     }
   }
 
