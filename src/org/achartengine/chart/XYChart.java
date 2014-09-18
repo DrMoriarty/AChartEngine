@@ -359,10 +359,12 @@ public abstract class XYChart extends AbstractChart {
         // xLabelsLeft += mRenderer.getLabelsTextSize() / 4;
         // }
       }
-      drawXLabels(xLabels, mRenderer.getXTextLabelLocations(), canvas, paint, xLabelsLeft, top,
-          bottom, xPixelsPerUnit[0], minX[0], maxX[0]);
-      drawYLabels(allYLabels, canvas, paint, maxScaleNumber, left, right, bottom, yPixelsPerUnit,
-          minY);
+      if (mRenderer.isShowAxeX())
+          drawXLabels(xLabels, mRenderer.getXTextLabelLocations(), canvas, paint, xLabelsLeft, top,
+                      bottom, xPixelsPerUnit[0], minX[0], maxX[0]);
+      if (mRenderer.isShowAxeY())
+          drawYLabels(allYLabels, canvas, paint, maxScaleNumber, left, right, bottom, yPixelsPerUnit,
+                      minY);
 
       if (showLabels) {
         paint.setColor(mRenderer.getLabelsColor());
@@ -455,9 +457,11 @@ public abstract class XYChart extends AbstractChart {
           width, height, legendSize, paint, false);
       transform(canvas, angle, false);
     }
-    if (mRenderer.isShowAxes()) {
+    if (mRenderer.isShowAxeX()) {
       paint.setColor(mRenderer.getXAxisColor());
       canvas.drawLine(left, bottom, right, bottom, paint);
+    }
+    if (mRenderer.isShowAxeY()) {
       paint.setColor(mRenderer.getYAxisColor());
       boolean rightAxis = false;
       for (int i = 0; i < maxScaleNumber && !rightAxis; i++) {

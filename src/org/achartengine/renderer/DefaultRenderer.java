@@ -49,8 +49,10 @@ public class DefaultRenderer implements Serializable {
   private int mBackgroundColor;
   /** If the background color is applied. */
   private boolean mApplyBackgroundColor;
-  /** If the axes are visible. */
-  private boolean mShowAxes = true;
+  /** If the X axe is visible. */
+  private boolean mShowAxeX = true;
+  /** If the Y axe is visible. */
+  private boolean mShowAxeY = true;
   /** The Y axis color. */
   private int mYAxisColor = TEXT_COLOR;
   /** The X axis color. */
@@ -345,21 +347,39 @@ public class DefaultRenderer implements Serializable {
   }
 
   /**
-   * Returns if the axes should be visible.
+   * Returns if the X axe should be visible.
    * 
-   * @return the visibility flag for the axes
+   * @return the visibility flag for the axe
    */
-  public boolean isShowAxes() {
-    return mShowAxes;
+  public boolean isShowAxeX() {
+    return mShowAxeX;
   }
 
   /**
-   * Sets if the axes should be visible.
+   * Sets if the X axe should be visible.
    * 
-   * @param showAxes the visibility flag for the axes
+   * @param showAxes the visibility flag for the axe
    */
-  public void setShowAxes(boolean showAxes) {
-    mShowAxes = showAxes;
+  public void setShowAxeX(boolean showAxeX) {
+    mShowAxeX = showAxeX;
+  }
+
+  /**
+   * Returns if the Y axe should be visible.
+   * 
+   * @return the visibility flag for the axe
+   */
+  public boolean isShowAxeY() {
+    return mShowAxeY;
+  }
+
+  /**
+   * Sets if the Y axe should be visible.
+   * 
+   * @param showAxes the visibility flag for the axe
+   */
+  public void setShowAxeY(boolean showAxeY) {
+    mShowAxeY = showAxeY;
   }
 
   /**
