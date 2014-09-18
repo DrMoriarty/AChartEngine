@@ -259,11 +259,11 @@ public class BarChart extends XYChart {
           x += seriesIndex * 2 * halfDiffX - (seriesNr - 1.5f) * halfDiffX;
         }
         if (value >= 0) {
-          drawText(canvas, getLabel(renderer.getChartValuesFormat(), value), x, points.get(i + 1)
-              - renderer.getChartValuesSpacing(), paint, 0);
+          drawText(canvas, getLabel(renderer.getChartValuesFormat(), value), x + renderer.getChartValuesOffset(),
+                   points.get(i + 1) - renderer.getChartValuesSpacing(), paint, 0);
         } else {
-          drawText(canvas, getLabel(renderer.getChartValuesFormat(), value), x, points.get(i + 1)
-              + renderer.getChartValuesTextSize() + renderer.getChartValuesSpacing() - 3, paint, 0);
+          drawText(canvas, getLabel(renderer.getChartValuesFormat(), value), x + renderer.getChartValuesOffset(),
+                   points.get(i + 1) + renderer.getChartValuesTextSize() + renderer.getChartValuesSpacing() - 3, paint, 0);
         }
       }
     }

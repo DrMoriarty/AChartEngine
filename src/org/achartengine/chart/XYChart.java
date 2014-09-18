@@ -613,11 +613,13 @@ public abstract class XYChart extends AbstractChart {
               || Math.abs(points.get(3) - points.get(1)) > renderer.getDisplayChartValuesDistance()) {
             // first point
             drawText(canvas, getLabel(renderer.getChartValuesFormat(), series.getY(startIndex)),
-                points.get(0), points.get(1) - renderer.getChartValuesSpacing(), paint, 0);
+                     points.get(0) + renderer.getChartValuesOffset(),
+                     points.get(1) - renderer.getChartValuesSpacing(), paint, 0);
             // second point
             drawText(canvas,
                 getLabel(renderer.getChartValuesFormat(), series.getY(startIndex + 1)),
-                points.get(2), points.get(3) - renderer.getChartValuesSpacing(), paint, 0);
+                     points.get(2) + renderer.getChartValuesOffset(),
+                     points.get(3) - renderer.getChartValuesSpacing(), paint, 0);
 
             previousPointX = points.get(2);
             previousPointY = points.get(3);
@@ -630,7 +632,8 @@ public abstract class XYChart extends AbstractChart {
                   .getDisplayChartValuesDistance()) {
             drawText(canvas,
                 getLabel(renderer.getChartValuesFormat(), series.getY(startIndex + k / 2)),
-                points.get(k), points.get(k + 1) - renderer.getChartValuesSpacing(), paint, 0);
+                     points.get(k) + renderer.getChartValuesOffset(),
+                     points.get(k + 1) - renderer.getChartValuesSpacing(), paint, 0);
             previousPointX = points.get(k);
             previousPointY = points.get(k + 1);
           }
@@ -640,7 +643,8 @@ public abstract class XYChart extends AbstractChart {
       for (int k = 0; k < points.size(); k += 2) {
         drawText(canvas,
             getLabel(renderer.getChartValuesFormat(), series.getY(startIndex + k / 2)),
-            points.get(k), points.get(k + 1) - renderer.getChartValuesSpacing(), paint, 0);
+                 points.get(k) + renderer.getChartValuesOffset(),
+                 points.get(k + 1) - renderer.getChartValuesSpacing(), paint, 0);
       }
     }
   }

@@ -115,7 +115,7 @@ public class RangeBarChart extends BarChart {
 
       if (!isNullValue(series.getY(index + 1)) && points.size() > i + 3) {
         // draw the maximum value
-        drawText(canvas, getLabel(renderer.getChartValuesFormat(), series.getY(index + 1)), x,
+        drawText(canvas, getLabel(renderer.getChartValuesFormat(), series.getY(index + 1)), x + renderer.getChartValuesOffset(),
             points.get(i + 3) - renderer.getChartValuesSpacing(), paint, 0);
       }
       if (!isNullValue(series.getY(index)) && points.size() > i + 1) {
@@ -123,7 +123,7 @@ public class RangeBarChart extends BarChart {
         drawText(
             canvas,
             getLabel(renderer.getChartValuesFormat(), series.getY(index)),
-            x,
+            x + renderer.getChartValuesOffset(),
             points.get(i + 1) + renderer.getChartValuesTextSize()
                 + renderer.getChartValuesSpacing() - 3, paint, 0);
       }
