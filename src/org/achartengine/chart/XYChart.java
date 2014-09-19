@@ -721,7 +721,8 @@ public abstract class XYChart extends AbstractChart {
     for (int i = 0; i < length; i++) {
       double label = xLabels.get(i);
       float xLabel = (float) (left + xPixelsPerUnit * (label - minX));
-      if (showLabels) {
+      boolean textLabel = mRenderer.getXTextLabel(label) != null;
+      if (showLabels && !textLabel) {
         paint.setColor(mRenderer.getXLabelsColor());
         if (showTickMarks) {
           canvas
